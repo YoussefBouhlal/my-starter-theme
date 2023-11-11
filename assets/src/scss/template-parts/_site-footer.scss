@@ -1,0 +1,19 @@
+/* Site Footer
+---------------------------------------------------------------------------------------------------- */
+
+.block-area-before-footer {
+	padding: var(--wp--custom--layout--block-gap-large) var(--wp--custom--layout--padding);
+
+	& > * {
+		max-width: var(--wp--custom--layout--wide);
+	}
+}
+
+.site-footer {
+	background: var(--wp--preset--color--primary);
+	font-size: var(--wp--preset--font-size--small);
+	color: var(--wp--preset--color--white);
+	padding: 40px 0;
+	position: relative;
+	text-align: center;
+}

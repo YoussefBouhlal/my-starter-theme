@@ -1,0 +1,11 @@
+@media(min-width: 786px) {
+
+    .content-image .acf-innerblocks-container {
+        display: flex;
+        gap: var(--wp--style--block-gap);
+    }
+
+    .content-image.reverse .acf-innerblocks-container {
+        flex-direction: row-reverse;
+    }
+}

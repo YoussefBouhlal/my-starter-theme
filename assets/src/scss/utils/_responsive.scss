@@ -1,0 +1,8 @@
+$breakpoints: (
+	'tablet' : 768px,
+	'mobile_menu' : 768px,
+	'medium' : 992px,
+	'desktop': 1200px
+) !default;
+
+@import '../../../node_modules/include-media/dist/_include-media.scss';
