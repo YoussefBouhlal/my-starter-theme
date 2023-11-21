@@ -36,14 +36,15 @@ include_once get_template_directory() . '/inc/wpforms.php';
  */
 function mystartertheme_scripts() {
 
-	$main_assets = include( get_theme_file_path( '/assets/build/main.asset.php' ) );
-	wp_enqueue_script( 'theme-global', get_theme_file_uri( '/assets/build/main.js' ), $main_assets['dependencies'], $main_assets['version'], true );
+	$main_js_assets = include( get_theme_file_path( '/assets/build/js/main.asset.php' ) );
+	wp_enqueue_script( 'theme-global', get_theme_file_uri( '/assets/build/js/main.js' ), $main_js_assets['dependencies'], $main_js_assets['version'], true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_style( 'theme-style', get_theme_file_uri( '/assets/build/main.css' ), array(), $main_assets['version'] );
+	$main_css_assets = include( get_theme_file_path( '/assets/build/css/main.asset.php' ) );
+	wp_enqueue_style( 'theme-style', get_theme_file_uri( '/assets/build/css/main.css' ), $main_css_assets['dependencies'], $main_css_assets['version'] );
 
 }
 add_action( 'wp_enqueue_scripts', 'mystartertheme_scripts' );
@@ -52,8 +53,8 @@ add_action( 'wp_enqueue_scripts', 'mystartertheme_scripts' );
  * Gutenberg scripts and styles
  */
 function mystartertheme_gutenberg_scripts() {
-	$editor_assets = include( get_theme_file_path( '/assets/build/editor.asset.php' ) );
-	wp_enqueue_script( 'theme-editor', get_theme_file_uri( '/assets/build/editor.js' ), $editor_assets['dependencies'], $editor_assets['version'], true );
+	$editor_assets = include( get_theme_file_path( '/assets/build/js/editor.asset.php' ) );
+	wp_enqueue_script( 'theme-editor', get_theme_file_uri( '/assets/build/js/editor.js' ), $editor_assets['dependencies'], $editor_assets['version'], true );
 }
 add_action( 'enqueue_block_editor_assets', 'mystartertheme_gutenberg_scripts' );
 
@@ -73,7 +74,7 @@ if ( ! function_exists( 'mystartertheme_setup' ) ) :
 
 		// Editor Styles.
 		add_theme_support( 'editor-styles' );
-		add_editor_style( 'assets/build/editor.css' );
+		add_editor_style( 'assets/build/css/editor.css' );
 
 		// Admin Bar Styling.
 		add_theme_support( 'admin-bar', array( 'callback' => '__return_false' ) );

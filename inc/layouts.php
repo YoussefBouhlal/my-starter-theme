@@ -23,8 +23,8 @@ function mystartertheme_page_layout_options() {
  * Gutenberg layout style
  */
 function mystartertheme_editor_layout_style() {
-	$editor_layout_assets = include( get_theme_file_path( '/assets/build/editor-layout.asset.php' ) );
-	wp_enqueue_style( 'cwp-editor-layout', get_theme_file_uri( '/assets/build/editor-layout.css' ), [], $editor_layout_assets['version'], 'all' );
+	$editor_layout_assets = include( get_theme_file_path( '/assets/build/css/editor-layout.asset.php' ) );
+	wp_enqueue_style( 'cwp-editor-layout', get_theme_file_uri( '/assets/build/css/editor-layout.css' ), $editor_layout_assets['dependencies'], $editor_layout_assets['version'], 'all' );
 }
 add_action( 'enqueue_block_editor_assets', 'mystartertheme_editor_layout_style' );
 

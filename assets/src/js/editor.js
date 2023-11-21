@@ -1,5 +1,3 @@
-import '../scss/editor.scss';
-
 import { unregisterBlockType, unregisterBlockStyle } from '@wordpress/blocks';
 import domReady from '@wordpress/dom-ready';
 
